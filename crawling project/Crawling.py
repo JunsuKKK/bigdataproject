@@ -1,10 +1,11 @@
 import os
 from selenium import webdriver
 from bs4 import BeautifulSoup
-import urllib.request
 import re
-import pandas as pd
-import uuid
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+from AnalysisDAO import insert,show_tables,delete
 import time
 
 class Crawling:
@@ -12,48 +13,54 @@ class Crawling:
         # R U N
         id = "webdev.jsk@gmail.com"
         pw = "!1q2w3e4r"
-        self.driver = self.login(id, pw)
+        driver = self.login(id, pw)
 
-        keyword="바나나우유"
+        keyword="아침고요수목원"
 
-        tag=self.pageMove(keyword,1)
-        self.search(tag, None, "href", 1)
+        tag=self.pageMove(keyword,1,driver)
+        time.sleep(3)
+        self.search(tag,keyword,driver)
 
     def hashtag(self,tag):
+        hashtag=''
         for line in tag:
-            print(line.gettext())
+            splitter = re.compile(r'([<>])')
+            if ">#" in str(line):
+                token=[]
+                token=splitter.split(str(line))
+                for tok in token:
+                    if "#" in tok:
+                        hashtag=hashtag+" "+tok
+        return hashtag
 
-    def search(self, tagname, classname,attribute, flag):
+    def search(self, tagname ,keyword,driver):
+        repeat=10000
+        driver.find_element_by_class_name('_9AhH0').click()
+        for i in range(repeat):
+            tag = self.pageMove(keyword, 2, driver)
+            hashtag = self.hashtag(tag)
+            date = self.get_date(tag)
 
+            if insert(driver.current_url, keyword, hashtag, date) is False:
+                continue
+
+
+    def get_date(self,tagname):
+        attribute='datetime'
         for s in tagname:
-            try:
-                link = s.get(attribute)
-                #datetime=s.get('class')
-                #if datetime is not None and datetime[0] is str(classname):
-                #    print(s.get('datetime'))
-                if link is not None:
-                    if flag is 1 and 'tagged' in link:
-                        tag = self.pageMove(link,2)
-                        self.hashtag(tag)
-                        date = self.search(tag,'_p29ma', 'datetime', 2)
+            link=s.get(attribute)
+            if link is not None:
+                print(link)
+                return link
 
-                        print(str(link)+">>>"+str(date))
-                    if flag is 2:
-                        if link is not None:
-                            date = link[0:10]
-                            return date
-
-            except UnicodeEncodeError:
-                print("Error")
-
-    def pageMove(self, keyword,flag):
-        driver=self.driver
+    def pageMove(self, keyword,flag,driver):
         if flag is 1:
-            self.driver.get('https://www.instagram.com/explore/tags/' + keyword)
+            driver.get('https://www.instagram.com/explore/tags/' + keyword)
             time.sleep(3)
         if flag is 2:
-            self.driver.get('https://www.instagram.com'+ keyword)
-        html = self.driver.page_source
+            driver.find_element_by_css_selector('.HBoOv._1bdSS').click()
+            time.sleep(1)
+        html = driver.page_source
         soup = BeautifulSoup(html, 'html.parser')
         tag = soup.find_all("a")
         tag = tag+soup.find_all("time")
@@ -67,7 +74,8 @@ class Crawling:
         driver.implicitly_wait(1)
         driver.find_element_by_name('username').send_keys(id)
         driver.find_element_by_name('password').send_keys(pw)
-        driver.find_element_by_css_selector('._4tgw8, ._r9b8f ._qv64e').click()
+        driver.find_element_by_css_selector('.KUBKM, ._6VtSN').click()
+        self.driver=driver
         return driver
 
 Crawling()
