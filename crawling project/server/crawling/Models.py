@@ -1,4 +1,4 @@
-from Database import Base
+from .Database import Base
 from sqlalchemy import Column,String,DateTime
 
 class TB_CrawlingData(Base):

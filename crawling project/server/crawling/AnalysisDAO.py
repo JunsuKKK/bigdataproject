@@ -1,5 +1,5 @@
-from Database import db_session
-from Models import TB_CrawlingData
+from .Database import db_session
+from .Models import TB_CrawlingData
 from sqlalchemy import *
 
 def show_tables():
@@ -10,16 +10,22 @@ def show_tables():
     print(col)
 
 def insert(data_link,data_keyword,data_hashtag,data_date):
-    queries = db_session.query(TB_CrawlingData.data_link)
+    queries = db_session.query(TB_CrawlingData.data_link,TB_CrawlingData.data_date,TB_CrawlingData.data_hashtag)
     link_list=(q.data_link for q in queries)
     time_list=(q.data_date for q in queries)
+    hash_list=(q.data_hashtag for q in queries)
     t = TB_CrawlingData(data_link,data_keyword,data_hashtag,data_date)
     if t.data_link in link_list:
         #중복감지
-        print("중복 감지... 다음 링크로 이동...")
+        #print("중복 감지...")
         return False
     elif t.data_date in time_list:
-        print("중복감지(시간)... 다음 링크로 이동...")
+        #print("중복감지(시간)...")
+        return False
+    elif t.data_hashtag in hash_list:
+        #print("해시태그 중복")
+        return False
+
     else:
         db_session.add(t)
         db_session.commit()
