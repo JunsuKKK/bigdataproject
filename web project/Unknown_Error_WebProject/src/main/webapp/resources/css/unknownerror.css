@@ -1,5 +1,16 @@
+button {
+  border-radius: 3px;
+  border-color: transparent;
+  font-size: 13px;
+  background: white;
+  color: blue;
+ cursor: pointer;
+}
 .fulloverlay {
 	background-color: white;
+}
+.loading {
+	max-width:10%;
 }
 
 .form-main {
@@ -21,4 +32,15 @@
 	margin-top:10%;
 	max-width: 400px;
 	background-color: black;
+}
+.keyword_list{
+	height: auto;
+	margin: 0 auto;
+	max-width:300px;
+	margin-top:7%;
+}
+.tdc{
+	text-align:center;
+	height: auto;
+	margin: 0 auto;
 }

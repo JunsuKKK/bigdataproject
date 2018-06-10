@@ -23,4 +23,4 @@ api.add_resource(message_api.MessageResponse, '/keyword')
 # app.debug=True 는 서버가 코드 변경을 감지하고 자동으로 리로드, 문제 발생시 디버거 제공한다.
 # 대화식 디버거는 임의의 코드가 실행될수 있기 때문에 보안취약점 가능성으로 운영환경에서는 [절대 사용하지 말아야 한다].
 def run():
-    application.run(debug=False, host='0.0.0.0', port=5006)
+    application.run(debug=False, host='0.0.0.0', port=5009)

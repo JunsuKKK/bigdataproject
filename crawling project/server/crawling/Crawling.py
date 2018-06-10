@@ -1,15 +1,11 @@
 import os
 from _ast import keyword
-
 from selenium import webdriver
 from bs4 import BeautifulSoup
 import re
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
 from .AnalysisDAO import insert,show_tables,delete
 import time
-
+import requests
 
 
 class MainCrawling(keyword):
@@ -36,7 +32,7 @@ class MainCrawling(keyword):
         return hashtag
 
     def search(self, tagname ,keyword,driver):
-        repeat=100000
+        repeat=10
         print("시작")
 
         driver.find_element_by_class_name('_9AhH0').click()
@@ -48,7 +44,8 @@ class MainCrawling(keyword):
 
             if insert(driver.current_url, keyword, hashtag, date) is False:
                 continue
-
+        url='http://localhost:8080/req'
+        r = requests.post(url, data={keyword:'ok'})
 
     def get_date(self,tagname):
         attribute='datetime'
@@ -62,7 +59,7 @@ class MainCrawling(keyword):
             driver.get('https://www.instagram.com/explore/tags/' + keyword)
             time.sleep(3)
         if flag is 2:
-            driver.find_element_by_css_selector('.HBoOv._1bdSS').click()
+            driver.find_element_by_css_selector('.coreSpriteRightPaginationArrow').click()
         html = driver.page_source
         soup = BeautifulSoup(html, 'html.parser')
         tag = soup.find_all("a")
@@ -77,7 +74,7 @@ class MainCrawling(keyword):
         options.add_argument('window-size=1920x1080')
         options.add_argument("disable-gpu")
         # 혹은 options.add_argument("--disable-gpu")
-
+        #driver = webdriver.Chrome(os.path.realpath("crawling/driver/chromedriver"))
         driver = webdriver.Chrome(os.path.realpath("crawling/driver/chromedriver"),chrome_options=options)
         #driver = webdriver.PhantomJS(os.path.realpath("crawling/driver/phantomjs"))
         driver.get("https://www.instagram.com/accounts/login/")
