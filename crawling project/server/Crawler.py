@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import time
 from crawling import Crawling
+from multiprocessing import Process
 
 keyword=None
 
@@ -12,9 +13,10 @@ def run():
     global keyword
     while True:
         if(keyword is None):
-            print("키워드가 없습니다.")
             time.sleep(2)
         else:
-            Crawling.MainCrawling(keyword)
+            var = keyword
             keyword=None
-
+            print(var)
+            p=Process(target=Crawling.MainCrawling,args=(var,))
+            p.start()

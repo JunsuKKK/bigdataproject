@@ -9,6 +9,7 @@ import requests
 
 
 class MainCrawling(keyword):
+
     def __init__(self,keyword):
         # R U N
         id = "webdev.jsk@gmail.com"
@@ -32,9 +33,8 @@ class MainCrawling(keyword):
         return hashtag
 
     def search(self, tagname ,keyword,driver):
-        repeat=10
-        print("시작")
-
+        repeat=50000
+        print(keyword+"시작")
         driver.find_element_by_class_name('_9AhH0').click()
 
         for i in range(repeat):

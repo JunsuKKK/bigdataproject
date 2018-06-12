@@ -15,15 +15,9 @@ def insert(data_link,data_keyword,data_hashtag,data_date):
     time_list=(q.data_date for q in queries)
     hash_list=(q.data_hashtag for q in queries)
     t = TB_CrawlingData(data_link,data_keyword,data_hashtag,data_date)
-    if t.data_link in link_list:
-        #중복감지
+    if (t.data_link in link_list) or ( t.data_date in time_list) or (t.data_hashtag in hash_list) or (t.data_hashtag is None) or (t.data_hashtag is ""):
+        #중복감지 혹은 해시태그가 없을 시
         #print("중복 감지...")
-        return False
-    elif t.data_date in time_list:
-        #print("중복감지(시간)...")
-        return False
-    elif t.data_hashtag in hash_list:
-        #print("해시태그 중복")
         return False
 
     else:
