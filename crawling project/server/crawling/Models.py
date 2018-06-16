@@ -7,7 +7,7 @@ class TB_CrawlingData(Base):
 
     data_link = Column(String(200), primary_key=True, unique=True)
     data_keyword = Column(String(45))
-    data_hashtag = Column(String(300))
+    data_hashtag = Column(String(600))
     data_date = Column(DateTime)
 
     def __init__(self, data_link,data_keyword,data_hashtag,data_date):

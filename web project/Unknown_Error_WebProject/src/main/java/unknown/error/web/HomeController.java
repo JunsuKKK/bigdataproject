@@ -41,7 +41,7 @@ public class HomeController {
 
 		String key = URLEncoder.encode("\"keyword\"","UTF-8");
 		String value = URLEncoder.encode("\""+keyword+"\"","UTF-8");
-		String url ="http://127.0.0.1:5009/keyword?kw={"+key+":"+value+"}";
+		String url ="http://52.78.155.153:5009/keyword?kw={"+key+":"+value+"}";
 		JSONObject json = readJsonFromUrl(url);
 		String result=(String) json.get("result");
 		dao.addKeyword(keyword);

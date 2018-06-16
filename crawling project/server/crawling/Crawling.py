@@ -44,7 +44,7 @@ class MainCrawling(keyword):
 
             if insert(driver.current_url, keyword, hashtag, date) is False:
                 continue
-        url='http://localhost:8080/req'
+        url='http://http://52.78.130.12/req'
         r = requests.post(url, data={keyword:'ok'})
 
     def get_date(self,tagname):
@@ -75,7 +75,7 @@ class MainCrawling(keyword):
         options.add_argument("disable-gpu")
         # 혹은 options.add_argument("--disable-gpu")
         #driver = webdriver.Chrome(os.path.realpath("crawling/driver/chromedriver"))
-        driver = webdriver.Chrome(os.path.realpath("crawling/driver/chromedriver"),chrome_options=options)
+        driver = webdriver.Chrome(os.path.realpath("crawling/driver/chromedriver_linux"),chrome_options=options)
         #driver = webdriver.PhantomJS(os.path.realpath("crawling/driver/phantomjs"))
         driver.get("https://www.instagram.com/accounts/login/")
         driver.implicitly_wait(1)
