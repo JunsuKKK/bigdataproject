@@ -1,28 +1,26 @@
 package unknown.error.web;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Iterator;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import unknown.error.domain.KeywordVO;
 import unknown.error.persistence.KeywordDAO;
@@ -30,6 +28,7 @@ import unknown.error.persistence.KeywordDAO;
 public class HomeController {
 	@Inject
 	KeywordDAO dao;
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) throws Exception {
 		model.addAttribute("list",dao.selectAll());
@@ -41,7 +40,7 @@ public class HomeController {
 
 		String key = URLEncoder.encode("\"keyword\"","UTF-8");
 		String value = URLEncoder.encode("\""+keyword+"\"","UTF-8");
-		String url ="http://52.78.155.153:5009/keyword?kw={"+key+":"+value+"}";
+		String url ="http://127.0.0.1:5009/keyword?kw={"+key+":"+value+"}";
 		JSONObject json = readJsonFromUrl(url);
 		String result=(String) json.get("result");
 		dao.addKeyword(keyword);
@@ -82,20 +81,13 @@ public class HomeController {
 		vo.setFlag(1);
 		dao.updateFlag(vo);
 	}
-	/*
-	@RequestMapping(value="/sessionchk",method=RequestMethod.POST)
-	public @ResponseBody String sessioncheck() throws UnsupportedEncodingException {
-		
-		if(kkk!=null) {
-			String keyword=URLEncoder.encode(kkk,"UTF-8");
-			kkk=null;
-			System.out.println(keyword+"들어갑니다용");
-			return keyword;
-		}
-		else {
-			System.out.println("널값임");
-			return null;
-		}
+	
+	// graph.jsp
+	@RequestMapping(value = "/graph", method = RequestMethod.GET)
+	public void listAll(Model model) throws Exception{
+
+		model.addAttribute("list", dao.graphList("��ߵ���ũ"));
 	}
-	*/
+	
+	
 }

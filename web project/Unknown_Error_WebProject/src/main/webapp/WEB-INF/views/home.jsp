@@ -31,14 +31,14 @@
 							<tr>
 								<td><c:if test="${keywordVO.flag==0}">
 										<button
-											onclick="location.href='/view?keyword=${keywordVO.keyword}'"
+											onclick="location.href='/graph?keyword=${keywordVO.keyword}'"
 											disabled="disabled" id="${keywordVO.keyword}">${keywordVO.keyword}</button>
 										<img id="img_${keywordVO.keyword}" class="loading"
 											src="resources/img/loading.gif">
 									</c:if>
 									<c:if test="${keywordVO.flag==1}">
 										<button
-											onclick="location.href='/view?keyword=${keywordVO.keyword}'"
+											onclick="location.href='/graph?keyword=${keywordVO.keyword}'"
 											id="${keywordVO.keyword}">${keywordVO.keyword}</button>
 										<img id="img_${keywordVO.keyword}" class="loading"
 											src="resources/img/check_img.png">
@@ -50,9 +50,6 @@
 				</div>
 			</div>
 		</div>
-
-		<div></div>
-
 	</div>
 
 </body>

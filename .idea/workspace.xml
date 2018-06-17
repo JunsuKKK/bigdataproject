@@ -4,8 +4,13 @@
     <list default="true" id="7afb691e-d2ff-4fcb-95e3-f796551b50c8" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crawling project/server/crawling/Crawling.py" beforeDir="false" afterPath="$PROJECT_DIR$/crawling project/server/crawling/Crawling.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crawling project/server/crawling/Models.py" beforeDir="false" afterPath="$PROJECT_DIR$/crawling project/server/crawling/Models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web project/Servers/Tomcat v8.0 Server at localhost-config/server.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web project/Servers/Tomcat v8.0 Server at localhost-config/server.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web project/Unknown_Error_WebProject/src/main/java/unknown/error/persistence/KeywordDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/web project/Unknown_Error_WebProject/src/main/java/unknown/error/persistence/KeywordDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web project/Unknown_Error_WebProject/src/main/java/unknown/error/persistence/KeywordDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/web project/Unknown_Error_WebProject/src/main/java/unknown/error/persistence/KeywordDAOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web project/Unknown_Error_WebProject/src/main/java/unknown/error/web/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/web project/Unknown_Error_WebProject/src/main/java/unknown/error/web/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web project/Unknown_Error_WebProject/src/main/resources/mappers/KeywordMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web project/Unknown_Error_WebProject/src/main/resources/mappers/KeywordMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web project/Unknown_Error_WebProject/src/main/webapp/WEB-INF/spring/root-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web project/Unknown_Error_WebProject/src/main/webapp/WEB-INF/spring/root-context.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web project/Unknown_Error_WebProject/src/main/webapp/WEB-INF/views/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web project/Unknown_Error_WebProject/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,8 +27,8 @@
       <file leaf-file-name="Crawling.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/crawling project/server/crawling/Crawling.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="14" column="35" lean-forward="true" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
+            <state relative-caret-position="168">
+              <caret line="56" column="44" lean-forward="true" selection-start-line="56" selection-start-column="44" selection-end-line="56" selection-end-column="44" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -58,7 +63,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="661" />
     <option name="y" value="-21" />
     <option name="width" value="1085" />
@@ -166,7 +171,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -175,7 +179,7 @@
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.4106383" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.159375" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.088541664" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" />
@@ -230,21 +234,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/crawling project/server/crawling/AnalysisDAO.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/crawling project/server/crawling/Database.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -280,21 +275,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/crawling project/server/crawling/AnalysisDAO.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/crawling project/server/crawling/Database.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -330,21 +316,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/crawling project/server/crawling/AnalysisDAO.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/crawling project/server/crawling/Database.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -380,21 +357,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/crawling project/server/crawling/AnalysisDAO.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/crawling project/server/crawling/Database.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
           <caret line="4" column="124" selection-start-line="4" selection-start-column="113" selection-end-line="4" selection-end-column="124" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -505,9 +473,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
           <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -515,9 +480,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
           <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -525,16 +487,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
           <caret line="24" selection-start-line="24" selection-end-line="24" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/crawling project/server/crawling/Crawling.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="35" lean-forward="true" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
+        <state relative-caret-position="168">
+          <caret line="56" column="44" lean-forward="true" selection-start-line="56" selection-start-column="44" selection-end-line="56" selection-end-column="44" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

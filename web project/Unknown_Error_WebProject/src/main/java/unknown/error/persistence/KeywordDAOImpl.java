@@ -5,9 +5,12 @@ import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
-import unknown.error.domain.KeywordVO;
 
-@Repository
+import unknown.error.domain.GraphVO;
+import unknown.error.domain.KeywordVO;
+import unknown.error.domain.WeatherVO;
+
+@Repository("KeywordDAO")
 public class KeywordDAOImpl implements KeywordDAO{
 	private static String NAMESPACE="unknown.error.mapper.KeywordMapper";
 	@Inject
@@ -30,5 +33,13 @@ public class KeywordDAOImpl implements KeywordDAO{
 		// TODO Auto-generated method stub
 		sqlSession.update(NAMESPACE+".updateFlag",vo);
 	}
-	
+
+	@Override
+	public List<GraphVO> graphList(String keyword) throws Exception {
+		return sqlSession.selectList(NAMESPACE+".listGraph", keyword);
+	}
+	@Override
+	public List<WeatherVO> weatherList() throws Exception {
+		return sqlSession.selectList(NAMESPACE+".listWeather");
+	}
 }

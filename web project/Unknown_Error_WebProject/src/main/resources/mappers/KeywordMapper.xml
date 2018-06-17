@@ -4,6 +4,7 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
 <mapper namespace="unknown.error.mapper.KeywordMapper">
+
 <insert id="insertKeyword" parameterType="unknown.error.domain.KeywordVO">
 insert into TB_Keyword values
 (#{keyword},0)
@@ -15,5 +16,13 @@ select * from TB_Keyword
 update TB_Keyword set flag=#{flag}
 where keyword=#{keyword}
 </update>
+
+<select id="listGraph" resultType="unknown.error.domain.GraphVO">
+select data_keyword, data_date, data_hashtag from TB_CrawlingData where data_keyword = #{keyword}
+</select>
+
+<select id="listWeather" resultType="unknown.error.domain.WeatherVO">
+select date, temperature, precipitation, humidity from TB_Envir where data = #{keyword}
+</select>
 
 </mapper>

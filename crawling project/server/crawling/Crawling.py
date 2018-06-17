@@ -33,7 +33,7 @@ class MainCrawling(keyword):
         return hashtag
 
     def search(self, tagname ,keyword,driver):
-        repeat=50000
+        repeat=5000
         print(keyword+"시작")
         driver.find_element_by_class_name('_9AhH0').click()
 
