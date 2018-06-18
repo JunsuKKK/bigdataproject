@@ -39,7 +39,7 @@ public class KeywordDAOImpl implements KeywordDAO{
 		return sqlSession.selectList(NAMESPACE+".listGraph", keyword);
 	}
 	@Override
-	public List<WeatherVO> weatherList() throws Exception {
-		return sqlSession.selectList(NAMESPACE+".listWeather");
+	public List<WeatherVO> weatherList(String city) throws Exception {
+		return sqlSession.selectList(NAMESPACE+".listWeather",city);
 	}
 }

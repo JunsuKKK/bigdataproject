@@ -10,6 +10,7 @@ import java.net.URLEncoder;
 import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -23,71 +24,83 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import unknown.error.domain.KeywordVO;
+import unknown.error.domain.WeatherVO;
 import unknown.error.persistence.KeywordDAO;
+
 @Controller
 public class HomeController {
 	@Inject
 	KeywordDAO dao;
-	
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) throws Exception {
-		model.addAttribute("list",dao.selectAll());
+		model.addAttribute("list", dao.selectAll());
 		return "home";
 	}
+
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public String keyword(@RequestParam String keyword, Model model) throws Exception {
-		//HashMap<String, String> key = new HashMap<String, String>();
+		// HashMap<String, String> key = new HashMap<String, String>();
 
-		String key = URLEncoder.encode("\"keyword\"","UTF-8");
-		String value = URLEncoder.encode("\""+keyword+"\"","UTF-8");
-		String url ="http://127.0.0.1:5009/keyword?kw={"+key+":"+value+"}";
+		String key = URLEncoder.encode("\"keyword\"", "UTF-8");
+		String value = URLEncoder.encode("\"" + keyword + "\"", "UTF-8");
+		String url = "http://127.0.0.1:5009/keyword?kw={" + key + ":" + value + "}";
 		JSONObject json = readJsonFromUrl(url);
-		String result=(String) json.get("result");
+		String result = (String) json.get("result");
 		dao.addKeyword(keyword);
-		
-		model.addAttribute("list",dao.selectAll());
-		
+
+		model.addAttribute("list", dao.selectAll());
+
 		return "redirect:/";
 	}
+
 	private static String readAll(Reader rd) throws IOException {
-	    StringBuilder sb = new StringBuilder();
-	    int cp;
-	    while ((cp = rd.read()) != -1) {
-	      sb.append((char) cp);
-	    }
-	    return sb.toString();
-	  }
-	
+		StringBuilder sb = new StringBuilder();
+		int cp;
+		while ((cp = rd.read()) != -1) {
+			sb.append((char) cp);
+		}
+		return sb.toString();
+	}
+
 	public static JSONObject readJsonFromUrl(String url) throws IOException, JSONException {
-	    InputStream is = new URL(url).openStream();
-	    		try {
-	      BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
-	      String jsonText = readAll(rd);
-	      JSONObject json = new JSONObject(jsonText);
-	      return json;
-	    } finally {
-	      is.close();
-	    }
-	  }
+		InputStream is = new URL(url).openStream();
+		try {
+			BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
+			String jsonText = readAll(rd);
+			JSONObject json = new JSONObject(jsonText);
+			return json;
+		} finally {
+			is.close();
+		}
+	}
+
 	@RequestMapping(value = "/req", method = RequestMethod.POST)
-	public void req(@RequestParam HashMap params,HttpServletRequest request) throws Exception {
+	public void req(@RequestParam HashMap params, HttpServletRequest request) throws Exception {
 		Iterator iterator = params.keySet().iterator();
 		String keyword = null;
 		while (iterator.hasNext()) {
-			keyword = (String)iterator.next();
+			keyword = (String) iterator.next();
 		}
 		KeywordVO vo = new KeywordVO();
 		vo.setKeyword(keyword);
 		vo.setFlag(1);
 		dao.updateFlag(vo);
 	}
-	
-	// graph.jsp
-	@RequestMapping(value = "/graph", method = RequestMethod.GET)
-	public void listAll(Model model) throws Exception{
 
-		model.addAttribute("list", dao.graphList("비발디파크"));
+	@RequestMapping(value = "/graph", method = RequestMethod.GET)
+	public void listAll(@RequestParam String keyword,String city, Model model,HttpServletRequest request) throws Exception {
+		System.out.println(city);
+		model.addAttribute("list", dao.graphList(keyword));
+		request.setAttribute("weather", dao.weatherList(city));
 	}
-	
-	
+
+	@RequestMapping(value = "/graph", method = RequestMethod.POST)
+	public String weather(@RequestParam HashMap city,Model model) throws Exception {
+			String cname=(String) city.get("data");
+			//model.addAttribute("weather",dao.weatherList(c));
+			System.out.println(cname);
+			model.addAttribute("weather",dao.weatherList(cname));
+			return "redirect:/graph";
+	}
 }

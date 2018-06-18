@@ -3,7 +3,21 @@ function enter() {
 		document.getElementById("keyword_input").value = "";
 	}
 }
-
+function citysubmit(){
+	var city= $.trim($("#city").val());
+	
+	$.ajax({
+	    type : 'POST',
+	    url : 'graph',
+	    dataType : 'json',
+	    data : {
+	    	"data":city
+	    },
+	    success : function(data){
+	    },
+	}); 
+	
+}
 /*
  * function hrefupdate() { $("#abc").attr("href", "http://www.google.com/");
  * alert("test"); }
@@ -32,7 +46,7 @@ function sc(){
 		}
 	});
 }
-*/
+
 function reload(){
 	location.reload();
 }
@@ -42,3 +56,4 @@ $(document).ready(function() {
 		setInterval(reload, 5000);
 	});
 })
+*/

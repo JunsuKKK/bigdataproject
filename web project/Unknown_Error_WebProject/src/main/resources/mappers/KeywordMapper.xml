@@ -22,7 +22,7 @@ select data_keyword, data_date, data_hashtag from TB_CrawlingData where data_key
 </select>
 
 <select id="listWeather" resultType="unknown.error.domain.WeatherVO">
-select date, temperature, precipitation, humidity from TB_Envir where data = #{keyword}
+select date, temperature, precipitation, humidity from TB_Envir where location = #{city}
 </select>
 
 </mapper>

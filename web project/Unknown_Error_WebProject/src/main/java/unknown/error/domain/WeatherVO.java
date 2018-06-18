@@ -6,6 +6,7 @@ public class WeatherVO {
 	private String precipitation;
 	private String humidity;
 	
+	
 	public WeatherVO(){
 		
 	}

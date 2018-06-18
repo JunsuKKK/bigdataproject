@@ -11,5 +11,5 @@ public interface KeywordDAO {
 	public List<KeywordVO> selectAll()throws Exception;
 	public void updateFlag(KeywordVO vo)throws Exception;
 	public List<GraphVO> graphList(String keyword)throws Exception;
-	public List<WeatherVO> weatherList()throws Exception;
+	public List<WeatherVO> weatherList(String city)throws Exception;
 }

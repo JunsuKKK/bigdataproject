@@ -1,3 +1,12 @@
+.mar{
+	margin-top:3%;
+}
+.listform{
+	max-width: 150px;
+	height: auto;
+	margin: 0 auto;
+	margin-top:7%;
+}
 button {
   border-radius: 3px;
   border-color: transparent;
@@ -12,7 +21,12 @@ button {
 .loading {
 	max-width:10%;
 }
-
+.chart1{
+	width: 50%; height: 300px; margin: auto;
+}
+.chart2{
+	width: 50%; height: 400px; margin: auto;
+}
 .form-main {
 	max-width: 720px;
 	height: auto;
@@ -36,8 +50,8 @@ button {
 .keyword_list{
 	height: auto;
 	margin: 0 auto;
+	margin-top:2%;
 	max-width:300px;
-	margin-top:7%;
 }
 .tdc{
 	text-align:center;

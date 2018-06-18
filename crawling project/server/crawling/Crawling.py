@@ -33,7 +33,7 @@ class MainCrawling(keyword):
         return hashtag
 
     def search(self, tagname ,keyword,driver):
-        repeat=5000
+        repeat=12000
         print(keyword+"시작")
         driver.find_element_by_class_name('_9AhH0').click()
 
@@ -75,7 +75,7 @@ class MainCrawling(keyword):
         options.add_argument("disable-gpu")
         # 혹은 options.add_argument("--disable-gpu")
         #driver = webdriver.Chrome(os.path.realpath("crawling/driver/chromedriver"))
-        driver = webdriver.Chrome(os.path.realpath("crawling/driver/chromedriver_linux"),chrome_options=options)
+        driver = webdriver.Chrome(os.path.realpath("crawling/driver/chromedriver"))
         #driver = webdriver.PhantomJS(os.path.realpath("crawling/driver/phantomjs"))
         driver.get("https://www.instagram.com/accounts/login/")
         driver.implicitly_wait(1)
